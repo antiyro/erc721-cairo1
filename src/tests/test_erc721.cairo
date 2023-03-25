@@ -6,8 +6,8 @@ use zeroable::Zeroable;
 use starknet::get_caller_address;
 
 use starknet::ContractAddressZeroable;
-use starknet::ContractAddressIntoFelt;
-use starknet::FeltTryIntoContractAddress;
+use starknet::contract_address_to_felt252252;
+use starknet::Felt252TryIntoContractAddress;
 use traits::Into;
 use traits::TryInto;
 use array::ArrayTrait;

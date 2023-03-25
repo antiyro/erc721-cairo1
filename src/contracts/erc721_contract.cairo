@@ -3,9 +3,11 @@ mod ERC721Contract {
     use zeroable::Zeroable;
     use starknet::get_caller_address;
     use starknet::ContractAddressZeroable;
+    use starknet::ContractAddress;
     use starknet::ContractAddressIntoFelt252;
     use starknet::Felt252TryIntoContractAddress;
     use starknet::contract_address_try_from_felt252;
+    use starknet::contract_address_to_felt252;
     use traits::Into;
     use traits::TryInto;
     use array::ArrayTrait;
@@ -16,17 +18,6 @@ mod ERC721Contract {
 
     use src::libraries::erc721_library::ERC721Library;
     use src::libraries::erc721_library::ERC721Library::ERC721Impl;
-
-    impl ContractAddressPartialEq of PartialEq::<ContractAddress> {
-        #[inline(always)]
-        fn eq(a: ContractAddress, b: ContractAddress) -> bool {
-            contract_address_to_felt(a) == contract_address_to_felt(b)
-        }
-        #[inline(always)]
-        fn ne(a: ContractAddress, b: ContractAddress) -> bool {
-            !(a == b)
-        }
-    }
 
 
     ////////////////////////////////

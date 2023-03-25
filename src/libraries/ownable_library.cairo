@@ -3,10 +3,10 @@ mod OwnableLibrary {
     use zeroable::Zeroable;
     use starknet::get_caller_address;
     use starknet::ContractAddressZeroable;
-    use starknet::ContractAddressIntoFelt;
+    use starknet::contract_address_to_felt252252;
     use src::corelib_extension::ContractAddressPartialEq;
-    use starknet::FeltTryIntoContractAddress;
-    use starknet::contract_address_try_from_felt;
+    use starknet::Felt252TryIntoContractAddress;
+    use starknet::contract_address_try_from_felt252;
     use traits::Into;
     use traits::TryInto;
     use array::ArrayTrait;

@@ -21,4 +21,13 @@ impl StorageAccessContractAddress of StorageAccess::<ContractAddress> {
     }
 }
 
-
+impl ContractAddressPartialEq of PartialEq::<ContractAddress> {
+        #[inline(always)]
+        fn eq(a: ContractAddress, b: ContractAddress) -> bool {
+            contract_address_to_felt252(a) == contract_address_to_felt252(b)
+        }
+        #[inline(always)]
+        fn ne(a: ContractAddress, b: ContractAddress) -> bool {
+            !(a == b)
+        }
+    }
