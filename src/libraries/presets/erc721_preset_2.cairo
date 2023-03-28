@@ -4,8 +4,9 @@ mod ERC721Preset2Library {
     use zeroable::Zeroable;
     use starknet::get_caller_address;
     use starknet::get_contract_address;
+    use starknet::ContractAddress;
     use starknet::ContractAddressZeroable;
-    use starknet::contract_address_to_felt252252;
+    use starknet::contract_address_to_felt252;
     use starknet::Felt252TryIntoContractAddress;
     use starknet::contract_address_try_from_felt252;
     use starknet::StorageAccess;

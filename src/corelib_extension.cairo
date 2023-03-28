@@ -2,6 +2,7 @@
 
 use starknet::Felt252TryIntoContractAddress;
 use starknet::ContractAddressIntoFelt252;
+use starknet::ContractAddress;
 use starknet::contract_address_to_felt252;
 use starknet::StorageAccess;
 use starknet::StorageBaseAddress;

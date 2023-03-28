@@ -1,9 +1,10 @@
 use src::contracts::ERC721MintableBurnableContract;
 
 use zeroable::Zeroable;
+use starknet::ContractAddress;
 use starknet::get_caller_address;
 use starknet::ContractAddressZeroable;
-use starknet::contract_address_to_felt252252;
+use starknet::contract_address_to_felt252;
 use src::corelib_extension::ContractAddressPartialEq;
 use starknet::Felt252TryIntoContractAddress;
 use traits::Into;

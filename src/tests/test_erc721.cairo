@@ -4,9 +4,12 @@ use src::contracts::ERC721Contract::ERC721Library;
 use src::corelib_extension::ContractAddressPartialEq;
 use zeroable::Zeroable;
 use starknet::get_caller_address;
+use starknet::ContractAddress;
+use starknet::starknet_testing;
+
 
 use starknet::ContractAddressZeroable;
-use starknet::contract_address_to_felt252252;
+use starknet::contract_address_to_felt252;
 use starknet::Felt252TryIntoContractAddress;
 use traits::Into;
 use traits::TryInto;
@@ -47,7 +50,7 @@ fn test_balance_of() {
 #[available_gas(2000000)]
 fn test_owner_of() {
     ERC721Contract::constructor('Foo', 'BAR');
-    let nft_id: u256 = integer::u256_from_felt(1);
+    let nft_id: u256 = integer::u256_from_felt252(1);
     ERC721Library::owners::write(nft_id, 123);
 
     let owner = ERC721Contract::owner_of(nft_id);
@@ -109,7 +112,7 @@ fn test_get_token_uri() {
 #[available_gas(2000000)]
 fn test_transfer_from() {
     ERC721Contract::constructor('Foo', 'BAR');
-    let nft_id: u256 = integer::u256_from_felt(1);
+    let nft_id: u256 = integer::u256_from_felt252(1);
     ERC721Library::owners::write(nft_id, 123);
     ERC721Library::balances::write(123, 1.into());
 
@@ -127,7 +130,7 @@ fn test_transfer_from() {
 // #[available_gas(2000000)]
 // fn test_safe_transfer_from() {
 //     ERC721Contract::constructor('Foo', 'BAR');
-//     let nft_id: u256 = integer::u256_from_felt(1);
+//     let nft_id: u256 = integer::u256_from_felt252(1);
 //     ERC721Library::owners::write(nft_id, 123);
 //     ERC721Library::balances::write(123, 1.into());
 

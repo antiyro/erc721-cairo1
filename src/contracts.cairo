@@ -1,3 +1,5 @@
+use starknet::ContractAddress;
+
 mod erc721_contract;
 use erc721_contract::ERC721Contract;
 
